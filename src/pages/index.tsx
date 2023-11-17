@@ -1,9 +1,16 @@
+import Layout from "@/components/common/layout";
+
+const APP_DESCRIPTION = "This app helps you track your tasks by creating a list of tasks with assigns and task timeframe and other details.";
+
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24`}
-    >
-      Hello world
-    </main>
+      <main>
+        <Layout
+            title={"Tasks App"}
+            content={APP_DESCRIPTION}
+        >
+            hello world
+        </Layout>
+      </main>
   )
 }
