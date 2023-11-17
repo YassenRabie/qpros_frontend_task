@@ -1,24 +1,20 @@
 import React from "react";
-import {Calendar, Clock, LucideIcon, Trash, User} from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import {ITask, TaskContextType} from "@/types/task";
+import {Calendar, Clock, LucideIcon, User} from "lucide-react";
+import {ITask} from "@/types/task";
 import {format} from "date-fns";
-import {TaskContext} from "@/context/tasksContext";
 
 type TaskCardProps = {
     task: ITask;
 }
 
-type TaskDetaislType = {
+type TaskDetailsType = {
     Icon: LucideIcon;
     label: string;
     value: string;
 }
 
-const TaskCard = ({ task }: TaskCardProps) => {
-    const { deleteTask } = React.useContext(TaskContext) as TaskContextType;
-
-    const taskDetails: TaskDetaislType[] = [
+const TaskSummary = ({ task }: TaskCardProps) => {
+    const taskDetails: TaskDetailsType[] = [
         {
             Icon: Calendar,
             label: "Start - End Date",
@@ -26,9 +22,15 @@ const TaskCard = ({ task }: TaskCardProps) => {
         },
         {
             Icon: Clock,
+            label: "Task Time",
+            value: `${task.taskTime}`,
+        },
+        {
+            Icon: Clock,
             label: "Duration",
             value: `${task.durationInHours} Hours`,
         },
+
         {
             Icon: User,
             label: "User",
@@ -37,12 +39,20 @@ const TaskCard = ({ task }: TaskCardProps) => {
     ];
 
     return (
-        <div className={"flex w-full columns-3 items-center shadow-md rounded-md px-6 py-4 border"}>
+        <div className={"flex flex-col w-full"}>
+            <p className={"text-xl font-[500]"}>{task.title}</p>
+
+            <p className={"text-sm text-gray-500"}>Subtitle: {task.subtitle}</p>
+
+            <div className={"mt-5"}>
+                <p className={"text-sm text-gray-500"}>Description</p>
+
+                <p className={"text-sm text-gray-800"}>{task.description}</p>
+            </div>
+
+            <hr className="mt-6 mb-2 h-0.5 border-t-0 bg-gray-100" />
+
             <div className={"flex-1"}>
-                <p className={"text-xl font-[500]"}>{task.title}</p>
-
-                <p className={"text-sm text-gray-500"}>{task.subtitle}</p>
-
                 <div className={"flex flex-col mt-4 gap-1"}>
                     {taskDetails.map(({ Icon, label, value }) =>
                         <div className={"flex items-center gap-1.5"}>
@@ -55,12 +65,8 @@ const TaskCard = ({ task }: TaskCardProps) => {
                     )}
                 </div>
             </div>
-
-            <Button onClick={() => deleteTask(task.id)} variant={"outline"} className={"ml-8"}>
-                <Trash />
-            </Button>
         </div>
     )
 }
 
-export default TaskCard;
+export default TaskSummary;

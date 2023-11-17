@@ -22,10 +22,13 @@ import {ChevronRight} from "lucide-react";
 import CreateTaskSchema from "@/components/createTask/CreateTask.schema";
 import React from "react";
 import {TaskContext} from "@/context/tasksContext";
-import {TaskContextType} from "@/types/task";
-import {router} from "next/client";
+import {ITask, TaskContextType} from "@/types/task";
 
-function CreateTaskForm() {
+type CreateTaskFormProps = {
+    setTask: (task: ITask) => void;
+}
+
+function CreateTaskForm({ setTask }: CreateTaskFormProps) {
     const { saveTask } = React.useContext(TaskContext) as TaskContextType;
     const { users }  = useFetchUsers();
 
@@ -34,9 +37,11 @@ function CreateTaskForm() {
     })
 
     function onSubmit(data: z.infer<typeof CreateTaskSchema>) {
-        saveTask({ ...data, id: Date.now().toString() });
+        const task = { ...data, id: Date.now().toString() };
 
-        router.push("/");
+        saveTask(task);
+
+        setTask(task);
     }
 
     return (

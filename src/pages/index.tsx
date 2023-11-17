@@ -3,7 +3,7 @@ import Layout from "@/components/common/layout";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "lucide-react";
 import EmptyList from "@/components/home/EmptyList";
-import TaskCard from "@/components/common/TaskCard";
+import TaskCard from "@/components/common/task/TaskCard";
 import Link from "next/link";
 import {TaskContext} from "@/context/tasksContext";
 import {TaskContextType} from "@/types/task";
@@ -11,7 +11,7 @@ import TasksList from "@/components/home/TasksList";
 
 const PAGE_DESCRIPTION = "This app helps you track your tasks by creating a list of tasks with assigns and task timeframe and other details.";
 
-export default function Home() {
+export default function HomePage() {
     const { tasks } = React.useContext(TaskContext) as TaskContextType;
 
     return (
