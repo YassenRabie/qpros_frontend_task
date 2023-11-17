@@ -11,7 +11,7 @@ const Index: FC<LayoutProps> = (props) => {
 
     return (
         <div className={"flex min-h-screen"}>
-            <div className={"container mx-auto bg-teal-500 flex-1 flex flex-col justify-center items-center p-8"}>
+            <div className={"container w-2/5 mx-auto bg-teal-500 flex flex-col justify-center items-center p-8"}>
                 <h3 className={"text-white text-3xl font-light"}>
                     {title}
                 </h3>
@@ -23,7 +23,7 @@ const Index: FC<LayoutProps> = (props) => {
                 }
             </div>
 
-            <div className={"flex-2 container mx-auto p-16"}>
+            <div className={"container flex-1 mx-auto p-16"}>
                 {children}
             </div>
         </div>
