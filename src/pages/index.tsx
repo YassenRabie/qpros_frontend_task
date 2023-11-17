@@ -1,25 +1,36 @@
+import React from "react";
 import Layout from "@/components/common/layout";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Plus } from "lucide-react";
 import EmptyList from "@/components/home/EmptyList";
+import TaskCard from "@/components/common/TaskCard";
+import Link from "next/link";
+import {TaskContext} from "@/context/tasksContext";
+import {TaskContextType} from "@/types/task";
+import TasksList from "@/components/home/TasksList";
 
-const APP_DESCRIPTION = "This app helps you track your tasks by creating a list of tasks with assigns and task timeframe and other details.";
+const PAGE_DESCRIPTION = "This app helps you track your tasks by creating a list of tasks with assigns and task timeframe and other details.";
 
 export default function Home() {
-  return (
-      <main>
+    const { tasks } = React.useContext(TaskContext) as TaskContextType;
+
+    return (
         <Layout
             title={"Tasks App"}
-            content={APP_DESCRIPTION}
+            content={PAGE_DESCRIPTION}
         >
             <div className={"flex flex-col items-center"}>
-                <Button className={"ml-auto"}>
-                    New Task <Plus className={"ml-2"} />
-                </Button>
+                <Link className={"ml-auto"} href={"task/new"}>
+                    <Button>
+                        New Task <Plus className={"ml-2"} />
+                    </Button>
+                </Link>
 
-                <EmptyList />
+                {tasks.length === 0 && <EmptyList/>}
+
+                {tasks.length > 0 && <TasksList tasks={tasks} />}
+
             </div>
         </Layout>
-      </main>
-  )
+    )
 }
