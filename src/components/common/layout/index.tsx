@@ -12,12 +12,12 @@ const Index: FC<LayoutProps> = (props) => {
     return (
         <div className={"flex min-h-screen"}>
             <div className={"container mx-auto bg-teal-500 flex-1 flex flex-col justify-center items-center p-8"}>
-                <h3 className={"text-white"}>
+                <h3 className={"text-white text-3xl font-light"}>
                     {title}
                 </h3>
 
                 {content &&
-                  <p className={"text-white mt-3"}>
+                  <p className={"text-white mt-3 text-center"}>
                     {content}
                   </p>
                 }
