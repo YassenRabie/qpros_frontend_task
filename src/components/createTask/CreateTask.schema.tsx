@@ -11,7 +11,7 @@ const CreateTaskSchema = z.object({
     description: z.string().min(1, {
         message: "Required"
     }).max(150, {
-        message: "Duration must be less than 30",
+        message: "Description characters can't be more than 150",
     }),
     startDate: z.date(),
     endDate: z.date(),
@@ -19,7 +19,7 @@ const CreateTaskSchema = z.object({
     durationInHours: z.number().min(1, {
         message: "Duration must be greater than 1",
     }).max(30, {
-        message: "Duration must be less than 30",
+        message: "Duration can't be more than 30",
     }),
     assignedTo: z.string()
 }).refine((data) => differenceInDays(data.endDate, data.startDate) < 6, {

@@ -170,10 +170,8 @@ function CreateTaskForm({ setTask }: CreateTaskFormProps) {
                                     <Input
                                         placeholder="Duration/h"
                                         type={"number"}
-                                        min={0}
-                                        max={30}
                                         {...field}
-                                        onChange={event => field.onChange(+event.target.value)}
+                                        onChange={e => field.onChange(+e?.target?.value || e)}
                                     />
                                 </FormControl>
 

@@ -12,10 +12,12 @@ const buttonVariants = cva(
                 default: "bg-rose-600 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
                 outline:
                     "border border-slate-200 bg-white hover:text-rose-600",
+                text:
+                    "border-slate-200 text-gray-400 hover:text-rose-600 hover:bg-gray-100",
             },
             size: {
                 default: "h-10 px-4 py-2",
-                sm: "h-9 rounded-md px-3",
+                sm: "h-8 rounded-md px-2",
                 lg: "h-11 rounded-md px-8",
                 icon: "h-10 w-10",
             },

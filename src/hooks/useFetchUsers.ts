@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {UserType} from "@/types/user";
 
 export function useFetchUsers() {
@@ -13,7 +13,9 @@ export function useFetchUsers() {
             .catch((error) => console.error(error));
     }
 
-    getUsers();
+    useEffect(() => {
+        getUsers();
+    }, []);
 
     return { users };
 }
