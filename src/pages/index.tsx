@@ -3,7 +3,6 @@ import Layout from "@/components/common/layout";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "lucide-react";
 import EmptyList from "@/components/home/EmptyList";
-import TaskCard from "@/components/common/task/TaskCard";
 import Link from "next/link";
 import {TaskContext} from "@/context/tasksContext";
 import {TaskContextType} from "@/types/task";

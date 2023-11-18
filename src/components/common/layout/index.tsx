@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 
-interface LayoutProps {
+type LayoutProps = {
     title: string;
     content?: string;
     children: React.ReactNode;

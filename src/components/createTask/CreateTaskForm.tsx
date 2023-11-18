@@ -10,7 +10,7 @@ import {
     FormControl,
     FormField,
     FormItem,
-    FormMessage,
+    FormMessage, FormTitle,
 } from "@/components/ui/Form"
 import { Input } from "@/components/ui/Input"
 import {Textarea} from "@/components/ui/TextArea";
@@ -216,8 +216,5 @@ function CreateTaskForm({ setTask }: CreateTaskFormProps) {
         </Form>
     )
 }
-
-const FormTitle = ({ text }: { text: string }) =>
-    <h4 className={"text-lg lg:text-2xl"}>{text}</h4>
 
 export default CreateTaskForm

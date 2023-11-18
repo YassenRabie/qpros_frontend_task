@@ -1,15 +1,14 @@
 import * as React from 'react';
 import {ITask, TaskContextType} from "@/types/task";
-import {addDays} from "date-fns";
 import {TASKS_INITIAL_STATE} from "@/constant/dummyData";
 
 export const TaskContext = React.createContext<TaskContextType | null>(null);
 
-interface ITaskProviderProps {
+type TaskProviderProps = {
     children: React.ReactNode;
 }
 
-const TaskProvider = ({ children } : ITaskProviderProps) => {
+const TaskProvider = ({ children } : TaskProviderProps) => {
     const [tasks, setTasks] = React.useState<ITask[]>(TASKS_INITIAL_STATE);
 
     const saveTask = (task: ITask) => {

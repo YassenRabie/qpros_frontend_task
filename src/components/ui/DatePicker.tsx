@@ -13,10 +13,11 @@ import {
     PopoverTrigger,
 } from "@/components/ui/Popover"
 import {FormControl} from "@/components/ui/Form";
+import {SelectSingleEventHandler} from "react-day-picker";
 
 interface DatePickerProps {
-    value: Date | null;
-    onChange: any;
+    value: Date | undefined;
+    onChange: SelectSingleEventHandler | undefined;
     label: string;
     disabled: (date: Date) => boolean;
 }
@@ -47,7 +48,7 @@ export function DatePicker({ value, onChange, label, disabled } : DatePickerProp
             <PopoverContent className="w-auto p-0 bg-white" align="start">
                 <Calendar
                     mode="single"
-                    selected={value as any}
+                    selected={value}
                     onSelect={onChange}
                     disabled={disabled}
                     initialFocus

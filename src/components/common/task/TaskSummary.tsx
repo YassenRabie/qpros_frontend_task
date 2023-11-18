@@ -1,20 +1,14 @@
 import React from "react";
-import {Calendar, Clock, LucideIcon, User} from "lucide-react";
-import {ITask} from "@/types/task";
+import {Calendar, Clock, User} from "lucide-react";
+import {ITask, TaskDetails} from "@/types/task";
 import {format} from "date-fns";
 
 type TaskCardProps = {
     task: ITask;
 }
 
-type TaskDetailsType = {
-    Icon: LucideIcon;
-    label: string;
-    value: string;
-}
-
 const TaskSummary = ({ task }: TaskCardProps) => {
-    const taskDetails: TaskDetailsType[] = [
+    const taskDetails: TaskDetails[] = [
         {
             Icon: Calendar,
             label: "Start - End Date",
@@ -30,7 +24,6 @@ const TaskSummary = ({ task }: TaskCardProps) => {
             label: "Duration",
             value: `${task.durationInHours} Hours`,
         },
-
         {
             Icon: User,
             label: "User",

@@ -10,22 +10,24 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ className, type, ...props }) => {
-        const inputRef = useRef(null);
+        const inputRef = useRef<HTMLInputElement>(null);
 
-        const onPlusClick = (e) => {
+        const onPlusClick = (e: any) => {
             e.preventDefault();
 
-            e.target.value = Number(inputRef.current.value) + 1;
+            e.target.value = Number(inputRef.current!.value) + 1;
 
-            props.onChange(e);
+            if (props.onChange)
+                props.onChange(e);
         }
 
-        const onMinusClick = (e) => {
+        const onMinusClick = (e: any) => {
             e.preventDefault();
 
-            e.target.value = Number(inputRef.current.value) - 1;
+            e.target.value = Number(inputRef.current!.value) - 1;
 
-            props.onChange(e);
+            if (props.onChange)
+                props.onChange(e);
         }
 
         return (

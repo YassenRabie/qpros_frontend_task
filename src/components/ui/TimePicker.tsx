@@ -1,13 +1,12 @@
-import React, {useState} from "react"
+import React, {FormEvent, useState} from "react"
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/Popover";
 import {FormControl} from "@/components/ui/Form";
 import {Button} from "@/components/ui/Button";
 import {cn} from "@/lib/utils";
-import {CalendarIcon} from "lucide-react";
 
-interface TimePickerProps{
+type TimePickerProps = {
     value: string | null;
-    onChange: any;
+    onChange: (string: String) => void;
     label: string;
 }
 
@@ -19,19 +18,19 @@ const MINUTES = ["00", "05", "10", "15", "30", "45", "60"];
 export function TimePicker({ value, onChange, label } : TimePickerProps) {
     const [time, setTime] = useState<string | null>(value);
 
-    const handleTimeChange = (e: any) => {
+    const handleTimeChange = (e: FormEvent<HTMLSelectElement>) => {
         let newTime;
 
         let hour = !time ? "00" : time.split(":")[0];
         let minute = !time ? "00" : time.split(":")[1];
 
-        const value = e.target.value;
+        const value = e.currentTarget.value;
 
-        if (e.target.name === "hours") {
+        if (e.currentTarget.name === "hours") {
             hour = value;
         }
 
-        if (e.target.name === "minutes") {
+        if (e.currentTarget.name === "minutes") {
             minute = value;
         }
 
@@ -63,11 +62,11 @@ export function TimePicker({ value, onChange, label } : TimePickerProps) {
             </PopoverTrigger>
 
             <PopoverContent className="w-auto p-0" align="start">
-                <div className="py-2 px-4 bg-white rounded-lg shadow-sm">
+                <div className="py-2 px-4 bg-white rounded-lg shadow-md">
                     <div className="flex">
                         <select
                             name="hours"
-                            className="bg-transparent text-xl appearance-none outline-none"
+                            className="bg-transparent appearance-none outline-none"
                             onChange={handleTimeChange}
                             value={time?.split(":")[0]}
                         >
@@ -78,7 +77,7 @@ export function TimePicker({ value, onChange, label } : TimePickerProps) {
 
                         <select
                             name="minutes"
-                            className="bg-transparent text-xl appearance-none outline-none"
+                            className="bg-transparent appearance-none outline-none"
                             onChange={handleTimeChange}
                             value={time?.split(":")[1]}
                         >

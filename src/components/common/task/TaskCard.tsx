@@ -1,7 +1,7 @@
 import React from "react";
-import {Calendar, Clock, LucideIcon, Trash, User} from "lucide-react";
+import {Calendar, Clock, Trash, User} from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import {ITask, TaskContextType} from "@/types/task";
+import {ITask, TaskContextType, TaskDetails} from "@/types/task";
 import {format} from "date-fns";
 import {TaskContext} from "@/context/tasksContext";
 
@@ -9,16 +9,10 @@ type TaskCardProps = {
     task: ITask;
 }
 
-type TaskDetailsType = {
-    Icon: LucideIcon;
-    label: string;
-    value: string;
-}
-
 const TaskCard = ({ task }: TaskCardProps) => {
     const { deleteTask } = React.useContext(TaskContext) as TaskContextType;
 
-    const taskDetails: TaskDetailsType[] = [
+    const taskDetails: TaskDetails[] = [
         {
             Icon: Calendar,
             label: "Start - End Date",
@@ -36,7 +30,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
         },
     ];
 
-    const onDeleteClick = (e) => {
+    const onDeleteClick = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
 
         deleteTask(task.id);

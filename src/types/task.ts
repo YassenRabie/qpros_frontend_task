@@ -17,3 +17,9 @@ export type TaskContextType = {
     saveTask: (task: ITask) => void;
     deleteTask: (id: string) => void;
 };
+
+export type TaskDetails = {
+    Icon: LucideIcon;
+    label: string;
+    value: string;
+}
