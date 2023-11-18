@@ -9,7 +9,7 @@ type TaskCardProps = {
     task: ITask;
 }
 
-type TaskDetaislType = {
+type TaskDetailsType = {
     Icon: LucideIcon;
     label: string;
     value: string;
@@ -18,7 +18,7 @@ type TaskDetaislType = {
 const TaskCard = ({ task }: TaskCardProps) => {
     const { deleteTask } = React.useContext(TaskContext) as TaskContextType;
 
-    const taskDetails: TaskDetaislType[] = [
+    const taskDetails: TaskDetailsType[] = [
         {
             Icon: Calendar,
             label: "Start - End Date",
@@ -43,18 +43,18 @@ const TaskCard = ({ task }: TaskCardProps) => {
     }
 
     return (
-        <div className={"flex w-full columns-3 items-center shadow-md rounded-md px-6 py-4 border hover:bg-gray-100"}>
-            <div className={"flex-1"}>
-                <p className={"text-xl font-[500]"}>{task.title}</p>
+        <div className={"flex w-full items-center shadow-md rounded-md px-4 py-4 border hover:bg-gray-100 flex-col lg:flex-row lg:px-6"}>
+            <div className={"flex-1 w-full"}>
+                <h3 className={"font-[500] text-base lg:text-xl"}>{task.title}</h3>
 
-                <p className={"text-sm text-gray-500"}>{task.subtitle}</p>
+                <p className={"text-xs text-gray-500 lg:text-sm"}>{task.subtitle}</p>
 
                 <div className={"flex flex-col mt-4 gap-1"}>
                     {taskDetails.map(({ Icon, label, value }) =>
                         <div className={"flex items-center gap-1.5"}>
                             <Icon className={"text-gray-400 w-4"} />
 
-                            <p className={"text-gray-400 text-xs"}>{`${label}:`}</p>
+                            <p className={"text-gray-400 text-xs hidden lg:block"}>{`${label}:`}</p>
 
                             <p className={"text-gray-500 text-sm"}>{value}</p>
                         </div>
@@ -62,7 +62,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
                 </div>
             </div>
 
-            <Button onClick={onDeleteClick} variant={"outline"} className={"ml-8"}>
+            <Button onClick={onDeleteClick} variant={"outline"} className={"ml-auto mt-4"}>
                 <Trash />
             </Button>
         </div>

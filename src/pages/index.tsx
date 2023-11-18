@@ -9,7 +9,7 @@ import {TaskContext} from "@/context/tasksContext";
 import {TaskContextType} from "@/types/task";
 import TasksList from "@/components/home/TasksList";
 
-const PAGE_DESCRIPTION = "This app helps you track your tasks by creating a list of tasks with assigns and task timeframe and other details.";
+const PAGE_DESCRIPTION = "A user-friendly app for efficient task management, fostering collaboration and boosting productivity. Organize, prioritize, and track tasks seamlessly for effective project management.";
 
 export default function HomePage() {
     const { tasks } = React.useContext(TaskContext) as TaskContextType;

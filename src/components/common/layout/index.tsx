@@ -16,8 +16,8 @@ const Index: FC<LayoutProps> = (props) => {
     const showHomeButton = pathname !== "/";
 
     return (
-        <div className={"flex min-h-screen"}>
-            <div className={"container text-white relative w-2/5 mx-auto bg-teal-500 flex flex-col justify-center items-center p-8"}>
+        <div className={"flex min-h-screen flex-col lg:flex-row"}>
+            <div className={"container text-white relative w-full mx-auto bg-teal-500 flex flex-col justify-center items-center p-6 lg:w-2/5 lg:p-16"}>
                 {showHomeButton && <Link href={"/"}>
                     <span className={"absolute left-4 top-4 underline"}>Home</span>
                 </Link>}
@@ -27,13 +27,13 @@ const Index: FC<LayoutProps> = (props) => {
                 </h3>
 
                 {content &&
-                  <p className={"mt-3 text-center"}>
+                  <p className={"mt-3 text-center text-xs lg:text-base"}>
                     {content}
                   </p>
                 }
             </div>
 
-            <div className={"container flex-1 mx-auto p-16"}>
+            <div className={"container flex-1 mx-auto p-6 lg:p-16"}>
                 {children}
             </div>
         </div>

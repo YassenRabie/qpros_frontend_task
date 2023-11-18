@@ -45,7 +45,7 @@ const TaskSummary = ({ task }: TaskCardProps) => {
             <p className={"text-sm text-gray-500"}>Subtitle: {task.subtitle}</p>
 
             <div className={"mt-5"}>
-                <p className={"text-sm text-gray-500"}>Description</p>
+                <p className={"text-sm text-gray-400"}>Description</p>
 
                 <p className={"text-sm text-gray-800"}>{task.description}</p>
             </div>
@@ -55,12 +55,12 @@ const TaskSummary = ({ task }: TaskCardProps) => {
             <div className={"flex-1"}>
                 <div className={"flex flex-col mt-4 gap-1"}>
                     {taskDetails.map(({ Icon, label, value }) =>
-                        <div className={"flex items-center gap-1.5"}>
+                        <div className={"flex items-center gap-1.5 flex-wrap"}>
                             <Icon className={"text-gray-400 w-4"} />
 
                             <p className={"text-gray-400 text-xs"}>{`${label}:`}</p>
 
-                            <p className={"text-gray-500 text-sm"}>{value}</p>
+                            <p className={"text-gray-600 text-sm w-full ml-5 lg:m-0 lg:w-auto"}>{value}</p>
                         </div>
                     )}
                 </div>

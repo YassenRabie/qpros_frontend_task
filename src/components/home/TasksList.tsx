@@ -10,7 +10,7 @@ type TasksListProps = {
 const TasksList = ({ tasks } : TasksListProps) => {
 
     return (
-        <div className={"w-full flex flex-col mt-16 gap-3"}>
+        <div className={"w-full flex flex-col mt-8 gap-3 lg:mt-16"}>
             {tasks.map((task) =>
                 <Link href={`/task/${task.id}`}>
                     <TaskCard task={task} />

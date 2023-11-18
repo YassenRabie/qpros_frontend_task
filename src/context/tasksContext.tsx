@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {ITask, TaskContextType} from "@/types/task";
 import {addDays} from "date-fns";
+import {TASKS_INITIAL_STATE} from "@/constant/dummyData";
 
 export const TaskContext = React.createContext<TaskContextType | null>(null);
 
@@ -9,30 +10,7 @@ interface ITaskProviderProps {
 }
 
 const TaskProvider = ({ children } : ITaskProviderProps) => {
-    const [tasks, setTasks] = React.useState<ITask[]>([
-        {
-            id: "string 1",
-            title: "This is a test task",
-            subtitle: "I'm a subtitle",
-            description: "lorem20",
-            startDate: addDays(new Date(), 4),
-            endDate: addDays(new Date(), 8),
-            taskTime: "01:00",
-            durationInHours: 6,
-            assignedTo: "Jon Do",
-        },
-        {
-            id: "string 3",
-            title: "This is a test task 2",
-            subtitle: "I'm a subtitle",
-            description: "lorem20",
-            startDate: addDays(new Date(), 1),
-            endDate: addDays(new Date(), 3),
-            taskTime: "01:00",
-            durationInHours: 6,
-            assignedTo: "Jon Do",
-        },
-    ]);
+    const [tasks, setTasks] = React.useState<ITask[]>(TASKS_INITIAL_STATE);
 
     const saveTask = (task: ITask) => {
         setTasks([...tasks, task]);

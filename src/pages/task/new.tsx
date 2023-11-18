@@ -4,7 +4,7 @@ import {useState} from "react";
 import {ITask} from "@/types/task";
 import TaskSummary from "@/components/common/task/TaskSummary";
 
-const PAGE_DESCRIPTION = "This app helps you track your tasks by creating a list of tasks with assigns and task timeframe and other details.";
+const PAGE_DESCRIPTION = "Initiate tasks effortlessly with the \"Create Task\" feature. Input details and delegate responsibilities. A streamlined process for prompt task definition and delegation within your team.";
 
 export default function NewTaskPage() {
     const [task, setTask] = useState<ITask | null>(null);

@@ -5,7 +5,7 @@ import TaskSummary from "@/components/common/task/TaskSummary";
 import {TaskContext} from "@/context/tasksContext";
 import {useRouter} from "next/router";
 
-const PAGE_DESCRIPTION = "This app helps you track your tasks by creating a list of tasks with assigns and task timeframe and other details.";
+const PAGE_DESCRIPTION = "Get a quick overview of task details with the Task Summary. Access title, due date, assignee, and related documents.";
 
 export default function TaskPage() {
     const { query } = useRouter();
@@ -19,7 +19,7 @@ export default function TaskPage() {
 
     return (
         <Layout
-            title={"Create Task"}
+            title={"Task Summary"}
             content={PAGE_DESCRIPTION}
         >
             <TaskSummary task={task} />

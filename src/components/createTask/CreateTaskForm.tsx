@@ -49,13 +49,13 @@ function CreateTaskForm({ setTask }: CreateTaskFormProps) {
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                 <FormTitle text={"Please fill with your Task details"} />
 
-                <div className={"flex space-x-6"}>
+                <div className={"columns-1 space-6 space-y-6 lg:columns-2"}>
                     {/* Title Field */}
                     <FormField
                         control={form.control}
                         name="title"
                         render={({ field }) => (
-                            <FormItem className={"flex-1"}>
+                            <FormItem>
                                 <FormControl>
                                     <Input placeholder="Title" {...field} />
                                 </FormControl>
@@ -70,7 +70,7 @@ function CreateTaskForm({ setTask }: CreateTaskFormProps) {
                         control={form.control}
                         name="subtitle"
                         render={({ field }) => (
-                            <FormItem className={"flex-1"}>
+                            <FormItem>
                                 <FormControl>
                                     <Input placeholder="Subtitle" {...field} />
                                 </FormControl>
@@ -104,7 +104,7 @@ function CreateTaskForm({ setTask }: CreateTaskFormProps) {
 
                 <FormTitle text={"Please fill with the request"} />
 
-                <div className={"flex space-x-6"}>
+                <div className={"columns-1 space-6 space-y-6 lg:columns-2"}>
                     {/* Start Date Picker */}
                     <FormField
                         control={form.control}
@@ -211,10 +211,8 @@ function CreateTaskForm({ setTask }: CreateTaskFormProps) {
                 <div className={"flex"}>
                     <Button className={"ml-auto"} type="submit">
                         Submit
-
                         <ChevronRight className={"ml-2"} />
                     </Button>
-
                 </div>
             </form>
         </Form>
@@ -222,6 +220,6 @@ function CreateTaskForm({ setTask }: CreateTaskFormProps) {
 }
 
 const FormTitle = ({ text }: { text: string }) =>
-    <h4 className={"text-2xl"}>{text}</h4>
+    <h4 className={"text-lg lg:text-2xl"}>{text}</h4>
 
 export default CreateTaskForm
